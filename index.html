@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dheeraj Kumar Portfolio</title>
+<meta name="description" content="Cyber Security Analyst and Java developer: firewall security, CyberArk PAM and full-stack projects.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: one 1100px column. The hero pairs the name with a firewall security-policy rule that allows hiring him; the sections below read like an analyst's change log. */
+:root{
+  --bg:#F0F2F4;
+  --surface:#FFFFFF;
+  --ink:#121A21;
+  --muted:#56616C;
+  --line:#D5DBE1;
+  --accent:#C2410C;
+  --accent-soft:#FCE9DE;
+  --on-accent:#FFFFFF;
+  --allow:#0F6E55;
+  --allow-soft:#DBF1E8;
+  --deny:#B42318;
+  --deny-soft:#FBE4E1;
+  --nav:rgba(240,242,244,.88);
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",-apple-system,"Segoe UI",Roboto,Helvetica,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0C1217; --surface:#131B22; --ink:#E4EAEF; --muted:#94A2AE; --line:#26313B;
+    --accent:#FF7C42; --accent-soft:#3A2116; --on-accent:#0C1217;
+    --allow:#45C998; --allow-soft:#123328; --deny:#FF6B5D; --deny-soft:#3B1815;
+    --nav:rgba(12,18,23,.88);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0C1217; --surface:#131B22; --ink:#E4EAEF; --muted:#94A2AE; --line:#26313B;
+  --accent:#FF7C42; --accent-soft:#3A2116; --on-accent:#0C1217;
+  --allow:#45C998; --allow-soft:#123328; --deny:#FF6B5D; --deny-soft:#3B1815;
+  --nav:rgba(12,18,23,.88);
+  color-scheme:dark;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+h1,h2,h3,h4{font-family:var(--display);text-wrap:balance;margin:0}
+p,ul{margin:0}
+code{font-family:var(--mono);font-size:.88em}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+
+.wrap{max-width:1100px;margin-inline:auto;padding-inline:clamp(16px,4vw,40px)}
+.eyebrow{font-family:var(--mono);font-size:.76rem;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+
+/* Nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--nav);-webkit-backdrop-filter:saturate(1.4) blur(10px);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:58px}
+.brand{font-family:var(--display);font-weight:800;font-stretch:118%;font-size:1.05rem;letter-spacing:-.01em;text-decoration:none}
+.brand span{color:var(--accent)}
+.nav-links{display:flex;gap:2px;list-style:none;padding:0}
+.nav-links a{display:block;padding:6px 11px;border-radius:6px;text-decoration:none;font-size:.9rem;color:var(--muted)}
+.nav-links a:hover{color:var(--ink);background:var(--surface)}
+.nav-links .nav-cta{color:var(--ink);background:var(--surface);border:1px solid var(--line)}
+@media (max-width:640px){.nav-links li:not(:last-child){display:none}}
+
+/* Hero */
+.hero{display:grid;gap:26px;padding-block:clamp(44px,8vw,96px) clamp(44px,7vw,80px)}
+.hero h1{font-weight:800;font-stretch:122%;font-size:clamp(2.6rem,8.4vw,6.3rem);line-height:.92;letter-spacing:-.028em}
+.lede{max-width:62ch;font-size:clamp(1.05rem,1.5vw,1.2rem);line-height:1.55}
+.lede strong{font-weight:600}
+
+.policy{background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;font-family:var(--mono);font-size:.82rem;line-height:1.5}
+.policy-bar{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 16px;padding:10px 16px;border-bottom:1px solid var(--line);font-size:.74rem;color:var(--muted)}
+.policy-bar b{font-weight:500;color:var(--ink)}
+.prow{display:grid;grid-template-columns:2.4rem minmax(0,1.4fr) minmax(0,1.05fr) minmax(0,.85fr) minmax(0,2.4fr) minmax(0,.8fr)}
+.prow + .prow{border-top:1px solid var(--line)}
+.cell{padding:12px 14px;min-width:0}
+.phead{font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);background:var(--bg)}
+.phead .cell{padding-block:8px}
+.k{display:none}
+.idx{color:var(--muted);font-variant-numeric:tabular-nums}
+.rname{font-weight:500}
+.stackv{display:flex;flex-direction:column;gap:2px}
+.apps{display:flex;flex-wrap:wrap;gap:5px}
+.app{padding:1px 7px;border:1px solid var(--line);border-radius:4px;white-space:nowrap}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:2px 9px;border-radius:999px;font-size:.72rem;font-weight:500;letter-spacing:.07em}
+.pill::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.pill.allow{background:var(--allow-soft);color:var(--allow)}
+.pill.deny{background:var(--deny-soft);color:var(--deny)}
+.prow.default{color:var(--muted)}
+@media (max-width:760px){
+  .phead{display:none}
+  .prow{grid-template-columns:1fr;padding-block:8px}
+  .cell{display:grid;grid-template-columns:6.8rem minmax(0,1fr);gap:10px;padding:5px 16px}
+  .k{display:block;font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);padding-top:2px}
+  .cell.idx{display:none}
+}
+
+.hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:500 .95rem/1.2 var(--body);text-decoration:none;cursor:pointer;transition:background-color .18s,border-color .18s,color .18s}
+.btn:hover{border-color:var(--ink)}
+.btn.primary{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.btn.primary:hover{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.avail{display:inline-flex;align-items:center;gap:8px;font-size:.9rem;color:var(--muted)}
+.dot{position:relative;width:9px;height:9px;border-radius:50%;background:var(--allow)}
+.dot::after{content:"";position:absolute;inset:0;border-radius:50%;background:var(--allow);animation:ping 2.4s ease-out infinite}
+@keyframes ping{0%{transform:scale(1);opacity:.55}80%,100%{transform:scale(2.6);opacity:0}}
+
+/* Sections */
+.section{display:grid;gap:clamp(24px,4vw,40px);padding-block:clamp(48px,7vw,88px);border-top:1px solid var(--line);scroll-margin-top:58px}
+.sec-head{display:grid;gap:10px;max-width:760px}
+.sec-head h2{font-weight:760;font-stretch:112%;font-size:clamp(1.7rem,3.6vw,2.6rem);line-height:1.06;letter-spacing:-.018em}
+.sec-head p{color:var(--muted);max-width:60ch}
+
+/* Experience */
+.timeline{display:grid}
+.job{display:grid;grid-template-columns:11rem minmax(0,1fr);gap:clamp(12px,3vw,40px);padding-block:30px;border-top:1px solid var(--line)}
+.job:first-child{border-top:0;padding-top:0}
+.when{font-family:var(--mono);font-size:.8rem;color:var(--muted);font-variant-numeric:tabular-nums;padding-top:6px}
+.job-body{display:grid;gap:4px;min-width:0}
+.job h3{font-size:1.4rem;font-weight:720;font-stretch:108%;letter-spacing:-.01em}
+.role{color:var(--muted)}
+.job-body > p.note{margin-top:8px;max-width:64ch}
+.engs{display:grid;gap:16px;margin-top:18px}
+.eng{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px clamp(16px,2.6vw,26px);display:grid;gap:14px}
+.eng-head{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px}
+.eng-head h4{font-size:1.12rem;font-weight:700;font-stretch:104%}
+.tag{font-family:var(--mono);font-size:.72rem;padding:2px 9px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+.eng-dates{margin-left:auto;font-family:var(--mono);font-size:.78rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.eng-role{color:var(--muted);font-size:.95rem;margin-top:-8px}
+.eng ul{padding-left:1.15rem;display:grid;gap:7px}
+.eng li{padding-left:2px}
+.eng li::marker{color:var(--accent)}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.stat{background:var(--bg);padding:12px 14px;display:grid;gap:2px}
+.stat b{font-family:var(--display);font-stretch:114%;font-weight:760;font-size:1.55rem;line-height:1.1;font-variant-numeric:tabular-nums}
+.stat span{font-size:.8rem;color:var(--muted);line-height:1.35}
+@media (max-width:640px){
+  .job{grid-template-columns:1fr;gap:6px}
+  .when{padding-top:0}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .eng-dates{margin-left:0;flex-basis:100%}
+}
+
+/* Projects */
+.projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+@media (max-width:760px){.projects{grid-template-columns:1fr}}
+.proj{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:clamp(18px,2.6vw,28px);display:flex;flex-direction:column;gap:12px;min-width:0;transition:border-color .2s}
+.proj:hover{border-color:var(--accent)}
+.kind{font-family:var(--mono);font-size:.72rem;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:var(--accent)}
+.proj h3{font-size:1.32rem;font-weight:730;font-stretch:108%;line-height:1.15;letter-spacing:-.01em}
+.proj .sub{color:var(--muted);font-size:.95rem;margin-top:-6px}
+.proj ul.points{padding-left:1.1rem;display:grid;gap:6px;font-size:.95rem}
+.proj ul.points li::marker{color:var(--muted)}
+.stack{display:flex;flex-wrap:wrap;gap:6px;list-style:none;padding:4px 0 0;margin-top:auto}
+.stack li{font-family:var(--mono);font-size:.74rem;padding:3px 8px;border-radius:5px;background:var(--bg);border:1px solid var(--line)}
+
+/* Skills */
+.skills{display:grid;border-top:1px solid var(--line)}
+.skill-row{display:grid;grid-template-columns:15rem minmax(0,1fr);gap:16px;padding-block:20px;border-bottom:1px solid var(--line)}
+.skill-row h3{font-family:var(--body);font-size:1rem;font-weight:600;line-height:1.4}
+.skill-row h3 small{display:block;font-weight:400;font-size:.85rem;color:var(--muted);margin-top:2px}
+.chips{display:flex;flex-wrap:wrap;gap:7px;list-style:none;padding:0}
+.chips li{font-size:.88rem;padding:4px 11px;border-radius:999px;border:1px solid var(--line);background:var(--surface)}
+@media (max-width:640px){.skill-row{grid-template-columns:1fr;gap:10px}}
+
+/* Training & education */
+.creds{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media (max-width:860px){.creds{grid-template-columns:1fr}}
+.cred{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:22px clamp(16px,2.4vw,24px);display:grid;align-content:start;gap:16px;min-width:0}
+.cred ul{list-style:none;padding:0;display:grid;gap:14px}
+.cred li{display:grid;gap:2px}
+.cred li b{font-weight:600;line-height:1.35}
+.cred li span{font-size:.86rem;color:var(--muted)}
+.cred .fine{font-size:.82rem;color:var(--muted);border-top:1px dashed var(--line);padding-top:12px}
+
+/* Contact */
+.contact-panel{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:clamp(22px,4.5vw,48px);display:grid;gap:28px}
+.contact-panel h2{font-weight:800;font-stretch:118%;font-size:clamp(1.9rem,4.6vw,3.3rem);line-height:1;letter-spacing:-.022em}
+.contact-panel .intro{max-width:60ch;font-size:1.05rem}
+.contact-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+@media (max-width:640px){.contact-grid{grid-template-columns:1fr}}
+.citem{display:grid;gap:8px;align-content:start;padding:16px;border:1px solid var(--line);border-radius:10px;background:var(--bg);min-width:0}
+.val{font-family:var(--mono);font-size:.95rem;overflow-wrap:anywhere}
+.val a{text-decoration:none}
+.val a:hover{text-decoration:underline;text-decoration-color:var(--accent)}
+.copy{justify-self:start;display:inline-flex;align-items:center;gap:6px;padding:5px 11px;border-radius:6px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:500 .8rem/1.2 var(--body);cursor:pointer}
+.copy:hover{border-color:var(--ink)}
+.copy.done{color:var(--allow);border-color:var(--allow)}
+
+footer{border-top:1px solid var(--line)}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 20px;padding-block:24px 36px;font-family:var(--mono);font-size:.76rem;color:var(--muted)}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+<nav class="nav" aria-label="Main">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top">Dheeraj<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="#work">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#training">Training</a></li>
+      <li><a class="nav-cta" href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="top">
+  <header class="hero wrap">
+    <p class="eyebrow">Cyber Security Analyst · Java &amp; full-stack developer · Delhi NCR</p>
+    <h1>Dheeraj Kumar</h1>
+    <p class="lede">I spent two years at Wipro in enterprise security: firewall policy across <strong>15+ global sites</strong> for Adani, then <strong>CyberArk privileged access</strong> for a US healthcare client. I also build software in Java, Python and JavaScript, and I'm looking for a role that uses both.</p>
+
+    <div class="policy" role="table" aria-label="Security policy: allow hiring Dheeraj">
+      <div class="policy-bar">
+        <span>Policies › <b>Security</b></span>
+        <span>2 rules · evaluated top-down · <b>commit: success</b></span>
+      </div>
+      <div class="prow phead" role="row">
+        <div class="cell" role="columnheader">#</div>
+        <div class="cell" role="columnheader">Name</div>
+        <div class="cell" role="columnheader">Source</div>
+        <div class="cell" role="columnheader">Destination</div>
+        <div class="cell" role="columnheader">Application</div>
+        <div class="cell" role="columnheader">Action</div>
+      </div>
+      <div class="prow" role="row">
+        <div class="cell idx" role="cell">1</div>
+        <div class="cell" role="cell"><span class="k">Name</span><span class="rname">allow-hire-dheeraj</span></div>
+        <div class="cell" role="cell"><span class="k">Source</span><span class="stackv"><span>delhi-ncr</span><span>pan-india</span></span></div>
+        <div class="cell" role="cell"><span class="k">Destination</span><span>your-team</span></div>
+        <div class="cell" role="cell"><span class="k">Application</span>
+          <span class="apps"><span class="app">java</span><span class="app">spring-boot</span><span class="app">python</span><span class="app">fastapi</span><span class="app">cyberark-pam</span><span class="app">pan-os</span><span class="app">fortigate</span><span class="app">azure</span></span>
+        </div>
+        <div class="cell" role="cell"><span class="k">Action</span><span><span class="pill allow">ALLOW</span></span></div>
+      </div>
+      <div class="prow default" role="row">
+        <div class="cell idx" role="cell">2</div>
+        <div class="cell" role="cell"><span class="k">Name</span><span>interzone-default</span></div>
+        <div class="cell" role="cell"><span class="k">Source</span><span>any</span></div>
+        <div class="cell" role="cell"><span class="k">Destination</span><span>any</span></div>
+        <div class="cell" role="cell"><span class="k">Application</span><span>any</span></div>
+        <div class="cell" role="cell"><span class="k">Action</span><span><span class="pill deny">DENY</span></span></div>
+      </div>
+    </div>
+
+    <div class="hero-actions">
+      <a class="btn primary" href="#contact">Get in touch</a>
+      <a class="btn" href="#projects">See projects</a>
+      <a class="btn" href="https://github.com/dhsingh735222" target="_blank" rel="noopener">GitHub ↗</a>
+      <span class="avail"><span class="dot" aria-hidden="true"></span>Available now, immediate joiner</span>
+    </div>
+  </header>
+
+  <section id="work" class="section wrap" aria-labelledby="work-h">
+    <div class="sec-head">
+      <p class="eyebrow">Experience</p>
+      <h2 id="work-h">Two years on enterprise security at Wipro</h2>
+    </div>
+
+    <div class="timeline">
+      <article class="job">
+        <p class="when">Sep 2024 – Aug 2026</p>
+        <div class="job-body">
+          <h3>Wipro Limited</h3>
+          <p class="role">Cyber Security Analyst L2 (designation: Project Engineer)</p>
+          <div class="engs">
+            <div class="eng">
+              <div class="eng-head">
+                <h4>BluePearl</h4>
+                <span class="tag">US healthcare</span>
+                <span class="eng-dates">Nov 2025 – Aug 2026</span>
+              </div>
+              <p class="eng-role">CyberArk PAM Engineer · cloud and infrastructure security</p>
+              <ul>
+                <li>Worked across CyberArk Privilege Cloud: Vault, PVWA, CPM, PSM and the Password Upload Utility.</li>
+                <li>Delivered a Value Creation Plan that automated reconcile-account configuration in the customer's cloud PAM environment.</li>
+                <li>Led the CyberArk PAM upgrade from v14.8 to the latest release, including post-upgrade validation.</li>
+                <li>Handled Active Directory administration and ITIL change management in ServiceNow.</li>
+              </ul>
+            </div>
+            <div class="eng">
+              <div class="eng-head">
+                <h4>Adani Enterprises</h4>
+                <span class="tag">Network &amp; firewall security</span>
+                <span class="eng-dates">Sep 2024 – Oct 2025</span>
+              </div>
+              <div class="stats">
+                <div class="stat"><b>100+</b><span>Palo Alto &amp; FortiGate firewalls supported</span></div>
+                <div class="stat"><b>15+</b><span>global sites</span></div>
+                <div class="stat"><b>5,000+</b><span>firewall rules analysed</span></div>
+                <div class="stat"><b>~40</b><span>changes &amp; incidents a month</span></div>
+              </div>
+              <ul>
+                <li>Standardised policy objects across 15+ sites, cutting firewall policy complexity by 25%.</li>
+                <li>Wrote Regex-based log parsing that removed about 2 hours of manual log review every day.</li>
+                <li>Built custom web-filtering rules to govern employee access to AI tools.</li>
+                <li>Created and configured GCP firewall rules and policies.</li>
+                <li>Worked change requests and incidents end to end through ServiceNow.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="job">
+        <p class="when">2021 – 2024</p>
+        <div class="job-body">
+          <h3>Freelance web developer</h3>
+          <p class="role">Independent</p>
+          <p class="note">Built websites for individual clients after graduating, while training in Java, data structures and the MERN stack through the AccioJob program.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="projects" class="section wrap" aria-labelledby="proj-h">
+    <div class="sec-head">
+      <p class="eyebrow">Projects</p>
+      <h2 id="proj-h">Things I've built</h2>
+      <p>Personal and learning projects across AI, backend, data streaming and cloud.</p>
+    </div>
+
+    <div class="projects">
+      <article class="proj">
+        <p class="kind">GenAI · Full stack</p>
+        <h3>JARVIS-X</h3>
+        <p class="sub">A personal AI assistant with long-term memory that runs on my own machine.</p>
+        <ul class="points">
+          <li>FastAPI backend streams replies over WebSockets to a Next.js frontend.</li>
+          <li>ChromaDB keeps conversation memory as vectors; LangChain switches between LLM providers, including llama3.1 on Ollama.</li>
+          <li>JWT authentication; the whole stack starts with Docker Compose.</li>
+        </ul>
+        <ul class="stack"><li>FastAPI</li><li>Next.js</li><li>LangChain</li><li>ChromaDB</li><li>Ollama</li><li>Docker</li></ul>
+      </article>
+
+      <article class="proj">
+        <p class="kind">Backend · Data streaming</p>
+        <h3>Kafka disaster-recovery replication</h3>
+        <p class="sub">Cross-cluster replication on Apache Kafka 4.0 with MirrorMaker 2.</p>
+        <ul class="points">
+          <li>A Java CLI produces commit-log events (op_type, key, value) to a primary cluster.</li>
+          <li>MirrorMaker 2 replicates them to a second cluster as <code>primary.commit-log</code>.</li>
+          <li>Two KRaft clusters run in Docker Compose; a scripted test pushes 1,000 messages through.</li>
+        </ul>
+        <ul class="stack"><li>Java</li><li>Kafka 4.0</li><li>MirrorMaker 2</li><li>Docker Compose</li><li>Bash</li></ul>
+      </article>
+
+      <article class="proj">
+        <p class="kind">Web app · Secure by default</p>
+        <h3>Student Result Management System</h3>
+        <p class="sub">Result lookup for students and an admin panel for schools.</p>
+        <ul class="points">
+          <li>Admins manage classes, subjects, students and results; students look up their own results.</li>
+          <li>Admin passwords hashed with bcrypt, CSRF protection on forms, database access through PDO.</li>
+          <li>Normalised SQLite schema in a single PHP file that runs with <code>php -S</code>.</li>
+        </ul>
+        <ul class="stack"><li>PHP</li><li>PDO</li><li>SQLite</li><li>Bootstrap 5</li></ul>
+      </article>
+
+      <article class="proj">
+        <p class="kind">Cloud · Serverless integration</p>
+        <h3>Email-to-queue on Azure</h3>
+        <p class="sub">Event-driven workflow built on Azure Logic Apps.</p>
+        <ul class="points">
+          <li>Every new email in an Outlook.com mailbox triggers a Logic App.</li>
+          <li>The workflow adds a message to an Azure Storage Queue for downstream processing.</li>
+          <li>Built for Wipro's Azure Logic Apps L3 learning path.</li>
+        </ul>
+        <ul class="stack"><li>Azure Logic Apps</li><li>Storage Queue</li><li>Outlook connector</li></ul>
+      </article>
+    </div>
+  </section>
+
+  <section id="skills" class="section wrap" aria-labelledby="skills-h">
+    <div class="sec-head">
+      <p class="eyebrow">Skills</p>
+      <h2 id="skills-h">Security operations and software, side by side</h2>
+    </div>
+    <div class="skills">
+      <div class="skill-row">
+        <h3>Network &amp; firewall security<small>Policy, rule review, filtering</small></h3>
+        <ul class="chips"><li>Palo Alto NGFW (physical &amp; VM-Series)</li><li>Panorama</li><li>Fortinet FortiGate</li><li>Check Point R80.x</li><li>GCP Cloud NGFW</li><li>Netskope SASE</li><li>Firewall policy review</li><li>Web filtering</li></ul>
+      </div>
+      <div class="skill-row">
+        <h3>Identity &amp; privileged access<small>PAM and directory</small></h3>
+        <ul class="chips"><li>CyberArk Privilege Cloud</li><li>Vault (EPV)</li><li>PVWA</li><li>CPM</li><li>PSM</li><li>PUU</li><li>Active Directory</li></ul>
+      </div>
+      <div class="skill-row">
+        <h3>Security operations<small>Monitoring, tickets, testing</small></h3>
+        <ul class="chips"><li>Microsoft Sentinel</li><li>ServiceNow (ITIL change &amp; incident)</li><li>Wireshark</li><li>Burp Suite</li><li>DLP</li><li>CIS Benchmarks</li><li>Regex log parsing</li></ul>
+      </div>
+      <div class="skill-row">
+        <h3>Software development<small>Languages and frameworks</small></h3>
+        <ul class="chips"><li>Java (OOP, DSA)</li><li>Spring Boot</li><li>JUnit</li><li>Python</li><li>FastAPI</li><li>JavaScript</li><li>React</li><li>Next.js</li><li>Node.js</li><li>PHP</li><li>C# / .NET</li><li>SQL</li><li>REST APIs</li><li>Selenium (Java)</li></ul>
+      </div>
+      <div class="skill-row">
+        <h3>Cloud, data &amp; AI tooling<small>Platforms and infrastructure</small></h3>
+        <ul class="chips"><li>Microsoft Azure</li><li>Google Cloud</li><li>Docker</li><li>Docker Compose</li><li>Apache Kafka</li><li>LangChain</li><li>ChromaDB</li><li>Ollama</li><li>Git</li><li>Microsoft 365</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="training" class="section wrap" aria-labelledby="train-h">
+    <div class="sec-head">
+      <p class="eyebrow">Training &amp; education</p>
+      <h2 id="train-h">Where I learned it</h2>
+    </div>
+    <div class="creds">
+      <div class="cred">
+        <p class="eyebrow">Microsoft official courses</p>
+        <ul>
+          <li><b>AZ-500 · Azure Security Technologies</b><span>Koenig Solutions · Jul 2026</span></li>
+          <li><b>SC-401 · Information Security Administrator</b><span>Koenig Solutions · Jul 2026</span></li>
+          <li><b>SC-300 · Identity and Access Administrator</b><span>Koenig Solutions · Aug 2026</span></li>
+        </ul>
+        <p class="fine">Course training completed. Certification exams in preparation.</p>
+      </div>
+      <div class="cred">
+        <p class="eyebrow">Job simulations · Forage</p>
+        <ul>
+          <li><b>Advanced Software Engineering</b><span>Walmart</span></li>
+          <li><b>Security Awareness</b><span>Mastercard</span></li>
+          <li><b>Risk</b><span>Goldman Sachs</span></li>
+        </ul>
+      </div>
+      <div class="cred">
+        <p class="eyebrow">Education</p>
+        <ul>
+          <li><b>B.Tech, Computer Science</b><span>GNIOT, Greater Noida · 2021</span></li>
+          <li><b>Full Stack Development &amp; DSA program</b><span>AccioJob · 2022 · Java, DSA, MERN, Spring Boot, JUnit</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section wrap" aria-labelledby="contact-h">
+    <div class="contact-panel">
+      <div class="sec-head">
+        <p class="eyebrow">Contact</p>
+        <h2 id="contact-h">Open to security and software roles</h2>
+      </div>
+      <p class="intro">I'm looking for Cyber Security Analyst, SOC, Network Security and Software Engineer roles. I can join immediately and I'm open to relocating anywhere in India.</p>
+      <div class="contact-grid">
+        <div class="citem">
+          <p class="eyebrow">Email</p>
+          <p class="val" id="email-val"><a href="mailto:dhsingh735222@gmail.com">dhsingh735222@gmail.com</a></p>
+          <button class="copy" type="button" id="copy-email" data-copy="dhsingh735222@gmail.com" data-target="email-val"><span class="copy-label">Copy email</span></button>
+        </div>
+        <div class="citem">
+          <p class="eyebrow">Phone</p>
+          <p class="val" id="phone-val">+91 95607 28276</p>
+          <button class="copy" type="button" id="copy-phone" data-copy="+919560728276" data-target="phone-val"><span class="copy-label">Copy number</span></button>
+        </div>
+        <div class="citem">
+          <p class="eyebrow">GitHub</p>
+          <p class="val"><a href="https://github.com/dhsingh735222" target="_blank" rel="noopener">github.com/dhsingh735222</a></p>
+          <p class="role">Code for my projects</p>
+        </div>
+        <div class="citem">
+          <p class="eyebrow">Location</p>
+          <p class="val">Delhi NCR, India</p>
+          <p class="role">Open to relocation</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>Dheeraj Kumar · 2026 · <a href="https://github.com/dhsingh735222" target="_blank" rel="noopener">github.com/dhsingh735222</a></span>
+    <span>rule 1 matched · session allowed</span>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.copy').forEach(function (btn) {
+  var label = btn.querySelector('.copy-label');
+  var original = label.textContent;
+  btn.addEventListener('click', function () {
+    var text = btn.getAttribute('data-copy');
+    var reset = function () { setTimeout(function () { label.textContent = original; btn.classList.remove('done'); }, 2000); };
+    var fallback = function () {
+      var el = document.getElementById(btn.getAttribute('data-target'));
+      if (el) {
+        var range = document.createRange();
+        range.selectNodeContents(el);
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+      }
+      label.textContent = 'Selected, press Ctrl+C';
+      reset();
+    };
+    try {
+      navigator.clipboard.writeText(text).then(function () {
+        label.textContent = 'Copied';
+        btn.classList.add('done');
+        reset();
+      }, fallback);
+    } catch (e) { fallback(); }
+  });
+});
+</script>
+</body>
+</html>
