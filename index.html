@@ -335,7 +335,7 @@ footer{border-top:1px solid var(--line)}
     <div class="sec-head">
       <p class="eyebrow">Projects</p>
       <h2 id="proj-h">Security work and things I've built</h2>
-      <p>Network security projects from my Wipro client work come first, then personal projects across AI, backend, data streaming and cloud.</p>
+      <p>Network security projects from my Wipro client work come first, then personal projects in AI and cloud.</p>
     </div>
 
     <div class="projects">
@@ -378,29 +378,6 @@ footer{border-top:1px solid var(--line)}
         <p class="proj-links"><a href="https://github.com/dhsingh735222/JarvisX" target="_blank" rel="noopener">View code ↗</a></p>
       </article>
 
-      <article class="proj">
-        <p class="kind">Backend · Data streaming</p>
-        <h3>Kafka disaster-recovery replication</h3>
-        <p class="sub">Cross-cluster replication on Apache Kafka 4.0 with MirrorMaker 2.</p>
-        <ul class="points">
-          <li>A Java CLI produces commit-log events (op_type, key, value) to a primary cluster.</li>
-          <li>MirrorMaker 2 replicates them to a second cluster as <code>primary.commit-log</code>.</li>
-          <li>Two KRaft clusters run in Docker Compose; a scripted test pushes 1,000 messages through.</li>
-        </ul>
-        <ul class="stack"><li>Java</li><li>Kafka 4.0</li><li>MirrorMaker 2</li><li>Docker Compose</li><li>Bash</li></ul>
-      </article>
-
-      <article class="proj">
-        <p class="kind">Web app · Secure by default</p>
-        <h3>Student Result Management System</h3>
-        <p class="sub">Result lookup for students and an admin panel for schools.</p>
-        <ul class="points">
-          <li>Admins manage classes, subjects, students and results; students look up their own results.</li>
-          <li>Admin passwords hashed with bcrypt, CSRF protection on forms, database access through PDO.</li>
-          <li>Normalised SQLite schema in a single PHP file that runs with <code>php -S</code>.</li>
-        </ul>
-        <ul class="stack"><li>PHP</li><li>PDO</li><li>SQLite</li><li>Bootstrap 5</li></ul>
-      </article>
 
       <article class="proj">
         <p class="kind">Cloud · Serverless integration</p>
