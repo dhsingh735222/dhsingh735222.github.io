@@ -186,8 +186,9 @@ code{font-family:var(--mono);font-size:.88em}
 .contact-panel{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:clamp(22px,4.5vw,48px);display:grid;gap:28px}
 .contact-panel h2{font-weight:800;font-stretch:118%;font-size:clamp(1.9rem,4.6vw,3.3rem);line-height:1;letter-spacing:-.022em}
 .contact-panel .intro{max-width:60ch;font-size:1.05rem}
-.contact-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-@media (max-width:640px){.contact-grid{grid-template-columns:1fr}}
+.contact-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media (max-width:900px){.contact-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.contact-grid{grid-template-columns:1fr}}
 .citem{display:grid;gap:8px;align-content:start;padding:16px;border:1px solid var(--line);border-radius:10px;background:var(--bg);min-width:0}
 .val{font-family:var(--mono);font-size:.95rem;overflow-wrap:anywhere}
 .val a{text-decoration:none}
@@ -263,6 +264,7 @@ footer{border-top:1px solid var(--line)}
       <a class="btn" href="#projects">See projects</a>
       <a class="btn" href="https://www.linkedin.com/in/dheeraj-kumar-netsec/" target="_blank" rel="noopener">LinkedIn ↗</a>
       <a class="btn" href="https://github.com/dhsingh735222" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="btn" href="https://leetcode.com/u/dhsingh735222/" target="_blank" rel="noopener">LeetCode ↗</a>
       <span class="avail"><span class="dot" aria-hidden="true"></span>Available now, immediate joiner</span>
     </div>
   </header>
@@ -288,6 +290,7 @@ footer{border-top:1px solid var(--line)}
               </div>
               <p class="eng-role">CyberArk PAM Engineer · cloud and infrastructure security</p>
               <ul>
+                <li>Configured firewall rules and security policies on GCP Cloud NGFW, and supported Zscaler and Microsoft Azure security operations.</li>
                 <li>Worked across CyberArk Privilege Cloud: Vault, PVWA, CPM, PSM and the Password Upload Utility.</li>
                 <li>Delivered a Value Creation Plan that automated reconcile-account configuration in the customer's cloud PAM environment.</li>
                 <li>Led the CyberArk PAM upgrade from v14.8 to the latest release, including post-upgrade validation.</li>
@@ -309,7 +312,7 @@ footer{border-top:1px solid var(--line)}
               <ul>
                 <li>Standardised policy objects across 15+ sites, cutting firewall policy complexity by 25%.</li>
                 <li>Wrote Regex-based log parsing that removed about 2 hours of manual log review every day.</li>
-                <li>Created and configured GCP firewall rules and policies, and custom web-filtering rules for AI tool access.</li>
+                <li>Built custom web-filtering rules to govern employee access to AI tools.</li>
                 <li>Worked change requests and incidents end to end through ServiceNow.</li>
               </ul>
             </div>
@@ -352,13 +355,13 @@ footer{border-top:1px solid var(--line)}
       <article class="proj">
         <p class="kind">Cloud security · Wipro client project</p>
         <h3>GCP cloud firewall policies</h3>
-        <p class="sub">Firewall rules for web applications running in Google Cloud.</p>
+        <p class="sub">Hybrid cloud firewall policy for BluePearl, a US healthcare client.</p>
         <ul class="points">
-          <li>Created and configured firewall rules and security policies on Google Cloud NGFW for cloud-hosted web applications.</li>
-          <li>Kept the cloud rules in line with the existing on-premises firewall policy, so the hybrid setup followed one standard.</li>
-          <li>Built custom web-filtering rules that govern employee access to AI tools.</li>
+          <li>Configured firewall rules and security policies on Google Cloud NGFW, aligned with the existing on-premises firewall estate.</li>
+          <li>Mapped traffic flows between cloud and on-premises segments and corrected NAT and route policies to remove asymmetric paths.</li>
+          <li>Set up unified security logging across the hybrid setup for faster incident triage.</li>
         </ul>
-        <ul class="stack"><li>Google Cloud</li><li>Cloud NGFW</li><li>Firewall policy</li><li>URL filtering</li></ul>
+        <ul class="stack"><li>Google Cloud</li><li>Cloud NGFW</li><li>NAT/PAT</li><li>Routing</li></ul>
         <p class="proj-links"><a href="https://github.com/dhsingh735222/network-security-projects#2-gcp-cloud-firewall-policies" target="_blank" rel="noopener">Read the case study ↗</a></p>
       </article>
 
@@ -503,6 +506,16 @@ footer{border-top:1px solid var(--line)}
           <p class="val"><a href="https://github.com/dhsingh735222" target="_blank" rel="noopener">github.com/dhsingh735222</a></p>
           <p class="role">Code for my projects</p>
         </div>
+        <div class="citem">
+          <p class="eyebrow">LeetCode</p>
+          <p class="val"><a href="https://leetcode.com/u/dhsingh735222/" target="_blank" rel="noopener">leetcode.com/u/dhsingh735222</a></p>
+          <p class="role">Daily DSA practice</p>
+        </div>
+        <div class="citem">
+          <p class="eyebrow">Location</p>
+          <p class="val">Delhi NCR, India</p>
+          <p class="role">Open to relocation</p>
+        </div>
       </div>
     </div>
   </section>
@@ -510,7 +523,7 @@ footer{border-top:1px solid var(--line)}
 
 <footer>
   <div class="wrap foot">
-    <span>Dheeraj Kumar · 2026 · <a href="https://www.linkedin.com/in/dheeraj-kumar-netsec/" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/dhsingh735222" target="_blank" rel="noopener">GitHub</a></span>
+    <span>Dheeraj Kumar · 2026 · <a href="https://www.linkedin.com/in/dheeraj-kumar-netsec/" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/dhsingh735222" target="_blank" rel="noopener">GitHub</a> · <a href="https://leetcode.com/u/dhsingh735222/" target="_blank" rel="noopener">LeetCode</a></span>
     <span>rule 1 matched · session allowed</span>
   </div>
 </footer>
