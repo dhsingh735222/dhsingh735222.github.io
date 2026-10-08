@@ -158,6 +158,9 @@ code{font-family:var(--mono);font-size:.88em}
 .proj ul.points{padding-left:1.1rem;display:grid;gap:6px;font-size:.95rem}
 .proj ul.points li::marker{color:var(--muted)}
 .stack{display:flex;flex-wrap:wrap;gap:6px;list-style:none;padding:4px 0 0;margin-top:auto}
+.proj-links{font-size:.9rem;font-weight:500}
+.proj-links a{color:var(--accent);text-decoration:none}
+.proj-links a:hover{text-decoration:underline}
 .stack li{font-family:var(--mono);font-size:.74rem;padding:3px 8px;border-radius:5px;background:var(--bg);border:1px solid var(--line)}
 
 /* Skills */
@@ -306,8 +309,7 @@ footer{border-top:1px solid var(--line)}
               <ul>
                 <li>Standardised policy objects across 15+ sites, cutting firewall policy complexity by 25%.</li>
                 <li>Wrote Regex-based log parsing that removed about 2 hours of manual log review every day.</li>
-                <li>Built custom web-filtering rules to govern employee access to AI tools.</li>
-                <li>Created and configured GCP firewall rules and policies.</li>
+                <li>Created and configured GCP firewall rules and policies, and custom web-filtering rules for AI tool access.</li>
                 <li>Worked change requests and incidents end to end through ServiceNow.</li>
               </ul>
             </div>
@@ -329,11 +331,37 @@ footer{border-top:1px solid var(--line)}
   <section id="projects" class="section wrap" aria-labelledby="proj-h">
     <div class="sec-head">
       <p class="eyebrow">Projects</p>
-      <h2 id="proj-h">Things I've built</h2>
-      <p>Personal and learning projects across AI, backend, data streaming and cloud.</p>
+      <h2 id="proj-h">Security work and things I've built</h2>
+      <p>Network security projects from my Wipro client work come first, then personal projects across AI, backend, data streaming and cloud.</p>
     </div>
 
     <div class="projects">
+      <article class="proj">
+        <p class="kind">Network security · Wipro client project</p>
+        <h3>Firewall policy standardisation</h3>
+        <p class="sub">Cleaning up a multi-site firewall rule base for Adani Enterprises.</p>
+        <ul class="points">
+          <li>Reviewed 5,000+ firewall rules, managed centrally in Panorama, to find duplicate, redundant and shadowed rules.</li>
+          <li>Replaced site-specific policy objects with one standard set shared across 15+ global sites, cutting policy complexity by 25%.</li>
+          <li>Raised and delivered every change through ServiceNow under ITIL change management.</li>
+        </ul>
+        <ul class="stack"><li>Palo Alto NGFW</li><li>Panorama</li><li>FortiGate</li><li>ServiceNow</li></ul>
+        <p class="proj-links"><a href="https://github.com/dhsingh735222/network-security-projects#1-firewall-policy-standardisation" target="_blank" rel="noopener">Read the case study ↗</a></p>
+      </article>
+
+      <article class="proj">
+        <p class="kind">Cloud security · Wipro client project</p>
+        <h3>GCP cloud firewall policies</h3>
+        <p class="sub">Firewall rules for web applications running in Google Cloud.</p>
+        <ul class="points">
+          <li>Created and configured firewall rules and security policies on Google Cloud NGFW for cloud-hosted web applications.</li>
+          <li>Kept the cloud rules in line with the existing on-premises firewall policy, so the hybrid setup followed one standard.</li>
+          <li>Built custom web-filtering rules that govern employee access to AI tools.</li>
+        </ul>
+        <ul class="stack"><li>Google Cloud</li><li>Cloud NGFW</li><li>Firewall policy</li><li>URL filtering</li></ul>
+        <p class="proj-links"><a href="https://github.com/dhsingh735222/network-security-projects#2-gcp-cloud-firewall-policies" target="_blank" rel="noopener">Read the case study ↗</a></p>
+      </article>
+
       <article class="proj">
         <p class="kind">GenAI · Full stack</p>
         <h3>JARVIS-X</h3>
@@ -344,6 +372,7 @@ footer{border-top:1px solid var(--line)}
           <li>JWT authentication; the whole stack starts with Docker Compose.</li>
         </ul>
         <ul class="stack"><li>FastAPI</li><li>Next.js</li><li>LangChain</li><li>ChromaDB</li><li>Ollama</li><li>Docker</li></ul>
+        <p class="proj-links"><a href="https://github.com/dhsingh735222/JarvisX" target="_blank" rel="noopener">View code ↗</a></p>
       </article>
 
       <article class="proj">
